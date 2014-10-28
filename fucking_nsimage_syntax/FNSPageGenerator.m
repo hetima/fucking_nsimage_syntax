@@ -17,7 +17,7 @@
     if (self) {
         _outputDirectory=path;
         _errorString=nil;
-        _generatorVersion=@"20141028";
+        _generatorVersion=@"20141028-2";
         BOOL isDir;
         if ([[NSFileManager defaultManager]fileExistsAtPath:path isDirectory:&isDir]) {
             if (!isDir) {
@@ -89,9 +89,81 @@
         
         @"NSGoRightSmall",
         @"NSGoLeftSmall",
-        @"",
-        @"",
-        @"",
+
+        //toolbar
+        @"NSToolbarClipIndicator",
+        @"NSToolbarCustomizeToolbarItemImage",
+        @"NSTokenPopDownArrow",
+        @"NSToolbarFlexibleSpaceItemPaletteRep",
+        @"NSToolbarSpaceItemPaletteRep",
+        @"NSToolbarPrintItemImage",
+        @"NSToolbarShowColorsItemImage",
+        @"NSToolbarShowFontsItemImage",
+
+        // gist.github.com/norio-nomura/f1f3a09e316c54bd26b0
+        @"NSClosedHandCursor",
+        @"NSCMYKButton",
+        @"NSColorPickerCrayon",
+        @"NSColorPickerList",
+        @"NSColorPickerSliders",
+        @"NSColorPickerUser",
+        @"NSColorPickerWheel",
+        @"NSColorProfileButton",
+        @"NSColorProfileButtonSelected",
+        @"NSColorSwatchResizeDimple",
+        @"NSDatePickerCalendarArrowLeft",
+        @"NSDatePickerCalendarArrowRight",
+        @"NSDatePickerCalendarHome",
+        @"NSDatePickerClockCenter",
+        @"NSDatePickerClockFace",
+        @"NSFontPanelActionButton",
+        @"NSFontPanelActionButtonPressed",
+        @"NSFontPanelBlurEffect",
+        @"NSFontPanelDropEffect",
+        @"NSFontPanelDropEffectPressed",
+        @"NSFontPanelEffectsDivider",
+        @"NSFontPanelMinusIdle",
+        @"NSFontPanelMinusPressed",
+        @"NSFontPanelOpacityEffect",
+        @"NSFontPanelPaperColour",
+        @"NSFontPanelPaperColourPressed",
+        @"NSFontPanelPlusIdle",
+        @"NSFontPanelPlusPressed",
+        @"NSFontPanelSliderThumb",
+        @"NSFontPanelSliderThumbPressed",
+        @"NSFontPanelSliderTrack",
+        @"NSFontPanelSplitterKnob",
+        @"NSFontPanelSpreadEffect",
+        @"NSFontPanelStrikeEffect",
+        @"NSFontPanelStrikeEffectPressed",
+        @"NSFontPanelTextColour",
+        @"NSFontPanelTextColourPressed",
+        @"NSFontPanelUnderlineEffect",
+        @"NSFontPanelUnderlineEffectPressed",
+        @"NSGreyButton",
+        @"NSHSBButton",
+        @"NSMagnifyingGlass",
+        @"NSMediaBrowserIcon",
+        @"NSMediaBrowserMediaTypeAudio",
+        @"NSMediaBrowserMediaTypeMovies",
+        @"NSMediaBrowserMediaTypePhotos",
+        @"NSNavEjectButton.normal",
+        @"NSNavEjectButton.normalSelected",
+        @"NSNavEjectButton.pressed",
+        @"NSNavEjectButton.rollover",
+        @"NSNavEjectButton.small.normal",
+        @"NSNavEjectButton.small.normalSelected",
+        @"NSNavEjectButton.small.pressed",
+        @"NSNavEjectButton.small.rollover",
+        @"NSPathLocationArrow",
+        @"NSRGBButton",
+        @"NSSmallMagnifyingGlass",
+        @"NSTextRulerCenterTab",
+        @"NSTextRulerDecimalTab",
+        @"NSTextRulerFirstLineIndent",
+        @"NSTextRulerIndent",
+        @"NSTextRulerLeftTab",
+        @"NSTextRulerRightTab",
         @"",
         @"",
         @"",
@@ -234,7 +306,8 @@
 -(NSString*)generateHiddenNames
 {
     NSMutableString* result=[[NSMutableString alloc]init];
-    NSArray* keys=[[FNSPageGenerator hiddenNames]sortedArrayUsingSelector:@selector(compare:)];
+    NSArray* keys=[[FNSPageGenerator hiddenNames]valueForKeyPath:@"@distinctUnionOfObjects.self"];
+    keys=[keys sortedArrayUsingSelector:@selector(compare:)];
     
     [result appendString:@"<h2>Undocumented Images</h2>"];
     [result appendString:@"<table class=\"pure-table pure-table-bordered\"><thead><tr><th>image</th><th>raw value</th></tr></thead><tbody>\n"];
