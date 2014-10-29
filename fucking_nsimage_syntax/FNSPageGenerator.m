@@ -690,6 +690,8 @@
     [result appendString:@"</head><body><div class=\"content\" style=\"margin:48px;\">"];
     [result appendString:@"<h1>Fucking NSImage Syntax</h1>"];
     
+    [result appendString:@"<p>A list of names can be used for +[NSImage imageNamed:]</p>"];
+    
     [result appendString:[self generatePublicNames]];
     [result appendString:[self generateHiddenNames:[FNSPageGenerator hiddenNames]]];
     
