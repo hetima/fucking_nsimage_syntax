@@ -620,7 +620,7 @@
     CGImageRef cgRef = [image CGImageForProposedRect:NULL context:nil hints:nil];
     NSBitmapImageRep *newRep = [[NSBitmapImageRep alloc] initWithCGImage:cgRef];
     [newRep setSize:[image size]];   // if you want the same resolution
-    NSData *pngData = [newRep representationUsingType:NSPNGFileType properties:nil];
+    NSData *pngData = [newRep representationUsingType:NSPNGFileType properties:@{}];
     if([pngData writeToFile:path atomically:YES]){
         return fileName;
     }
