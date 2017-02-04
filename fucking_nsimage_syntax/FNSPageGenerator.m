@@ -133,15 +133,11 @@
         @"NSColorPickerSliders",
         @"NSColorPickerUser",
         @"NSColorPickerWheel",
-        @"NSColorProfileButton",
-        @"NSColorProfileButtonSelected",
         @"NSColorSwatchResizeDimple",
         @"NSGreyButton",
         @"NSHSBButton",
         @"NSMagnifyingGlass",
         @"NSRGBButton",
-        @"NSColorProfileButton",
-        @"NSColorProfileButtonSelected",
         @"NSColorSwatchResizeDimple",
      
     ]}, @{@"name": @"Font Panel", @"values": @[
